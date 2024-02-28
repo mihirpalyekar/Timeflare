@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  app:
+    image: nikhilramsey/timeflare:latest
+    platform: linux/amd64
+    build:
+      context: ./
+      target: dev
+      dockerfile: Dockerfile
+      
+    volumes:
+        - .:/app
+        - /app/node_modules
+        - /app/.next
+    ports:
+      - "3000:443"
